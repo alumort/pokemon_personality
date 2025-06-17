@@ -1,0 +1,20 @@
+{% extends 'partials/base.html'%}
+{% block title %} Bienvenido a Personality donde podrás saber cuál pokemon sos según tu personalidad{% endblock title %}
+{% block content %}
+
+<form method="post">
+{%csrf_token%}
+    <div>
+        <p>
+        Empecemos con el cuestionario. Elegí una opción.
+        </p>
+        {{form.as_p}}
+        <button type="submit">Enviar</button>
+    </div>
+</form>
+{% if result %}
+    <div>
+       {{result}}
+    </div>
+{% endif %}
+{% endblock content %}
